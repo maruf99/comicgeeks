@@ -224,10 +224,10 @@ export function fetchSearchResults(query: string, format: CollectionTypes = Coll
  * ```
  */
 export async function fetchUser(name: string): Promise<User | null> {
-    const url = `${BASE_URL}/profile/${name.toLowerCase()}/pull-list`;
+    const url = `${BASE_URL}/profile/${name.toLowerCase()}`;
 
     try {
-        const text = await fetch(url).then(res => res.text());
+        const text = await fetch(`${url}/pull-list`).then(res => res.text());
         const $ = cheerio.load(text);
 
         const details = $('#comic-list-block').first();

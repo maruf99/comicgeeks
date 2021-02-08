@@ -89,7 +89,7 @@ fetchUser('maruf99')
 {
     id: 122444,
     name: 'maruf99',
-    url: 'https://leagueofcomicgeeks.com/profile/maruf99/pull-list',
+    url: 'https://leagueofcomicgeeks.com/profile/maruf99',
     avatar: 'https://s3.amazonaws.com/comicgeeks/avatars/large-122444.jpg?t=1609863575'
 }
  */
