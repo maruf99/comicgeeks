@@ -3,6 +3,7 @@ import type Publishers from './publishers';
 
 /**
  * Parameters for the HTTP Request
+ * @hidden
  */
 export interface RequestParameters {
     list: number | string;
