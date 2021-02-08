@@ -6,9 +6,15 @@
   "module": "esm/index.mjs",
   "typings": "typings/index.d.ts",
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "rimraf ./dist && npx tsc",
     "docs": "rimraf ./docs && npx typedoc"
   },
+  "files": [
+    "dist",
+    "esm",
+    "typings"
+	],
   "keywords": [
     "comic",
     "comicbook",
@@ -18,6 +24,8 @@
     "league of comic geeks"
   ],
   "author": "maruf99",
+  "repository": "https://github.com/maruf99/comicgeeks",
+  "homepage": "https://github.com/maruf99/comicgeeks#readme",
   "license": "MIT",
   "devDependencies": {
     "@types/cheerio": "^0.22.23",
