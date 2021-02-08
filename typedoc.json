@@ -1,0 +1,14 @@
+{
+    "name": "comicgeeks",
+    "readme": "./README.md",
+    "tsconfig": "./tsconfig.json",
+    "excludeInternal": true,
+    "excludeExternals": true,
+    "entryPoints": [
+        "./src/index.ts"
+    ],
+    "out": "./docs/",
+    "exclude": [
+        "**/node_modules/**"
+    ]
+}

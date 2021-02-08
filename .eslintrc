@@ -1,0 +1,38 @@
+{
+    "extends": "marine/node",
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.eslint.json",
+        "ecmaVersion": 2020,
+        "createDefaultProgram": true
+    },
+    "plugins": [
+        "@typescript-eslint/eslint-plugin"
+    ],
+    "ignorePatterns": [".eslintrc"],
+    "rules": {
+        "linebreak-style": 0,
+        "eol-last": 0,
+        "one-var": 0,
+        "newline-per-chained-call": 0,
+        "no-eq-null": 0,
+        "quote-props": 0,
+        "prefer-template": 0,
+        "no-case-declarations": 0,
+        "no-eval": 0,
+        "radix": 0,
+        "no-negated-condition": 0,
+        "func-name-matching": 0,
+        "@typescript-eslint/indent": 0,
+        "@typescript-eslint/consistent-type-assertions": 0,
+        "@typescript-eslint/prefer-function-type": 0,
+        "@typescript-eslint/restrict-plus-operands": 0,
+        "@typescript-eslint/no-extraneous-class": 0,
+        "@typescript-eslint/naming-convention": 0,
+        "@typescript-eslint/no-unnecessary-condition": 0,
+        "@typescript-eslint/no-base-to-string": 0,
+        "@typescript-eslint/restrict-template-expressions": 0,
+        "@typescript-eslint/no-dynamic-delete": 0,
+        "@typescript-eslint/no-unused-vars": 1
+    }
+}

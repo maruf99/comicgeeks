@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "lib": [
+            "ES2020",
+            "ESNext"
+        ],
+        "module": "CommonJS",
+        "target": "ES2017",
+        "declaration": true,
+        "declarationDir": "typings",
+        "strict": true,
+        "alwaysStrict": true,
+        "strictNullChecks": false,
+        "esModuleInterop": true,
+        "moduleResolution": "Node",
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "pretty": true,
+        "resolveJsonModule": true,
+        "importsNotUsedAsValues": "error"
+    }
+}
