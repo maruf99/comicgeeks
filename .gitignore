@@ -5,6 +5,7 @@ package-lock.json
 # Build
 docs
 dist
+typings
 
 # Other
 test

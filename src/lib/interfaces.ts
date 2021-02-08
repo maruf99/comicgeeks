@@ -1,4 +1,5 @@
-import type { FilterTypes, Publishers, SortTypes } from './constants';
+import type { FilterTypes, SortTypes } from './constants';
+import type Publishers from './publishers';
 
 /**
  * Parameters for the HTTP Request

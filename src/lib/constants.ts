@@ -1,6 +1,3 @@
-import Publishers from './publishers.json';
-export { Publishers };
-
 /** @hidden */
 export const BASE_URL = 'https://leagueofcomicgeeks.com';
 

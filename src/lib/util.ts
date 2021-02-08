@@ -1,4 +1,4 @@
-import { Publishers } from './constants';
+import Publishers from './publishers';
 import type { DateResolvable, PublisherResolvable } from './interfaces';
 
 export function formatURL(url: string, obj: Record<string, any>): string {
