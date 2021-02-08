@@ -32,6 +32,7 @@ Each method returns a Promise that resolves with the data. Here are a few exampl
 
 ```js
 const { fetchReleases, FilterTypes } = require('comicgeeks');
+// ES Module or TypeScript: import { fetchReleases, FilterTypes } from 'comicgeeks';
 
 // Fetch regular, digital, and annual DC Comics issues that released on 2020-12-15, and sort them alphabetically
 fetchReleases('2020-12-15', {
