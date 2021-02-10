@@ -226,22 +226,19 @@ export function fetchSearchResults(query: string, format: CollectionTypes = Coll
 export async function fetchUser(name: string): Promise<User | null> {
     const url = `${BASE_URL}/profile/${name.toLowerCase()}`;
 
-    try {
-        const text = await fetch(`${url}/pull-list`).then(res => res.text());
-        const $ = cheerio.load(text);
+    const text = await fetch(`${url}/pull-list`).then(res => res.text());
+    const $ = cheerio.load(text);
 
-        const details = $('#comic-list-block').first();
-        if (!details) return null;
+    const details = $('#comic-list-block').first();
+    const avatar = $('.avatar-user.mr-3 a img').attr('src');
 
-        const avatar = $('.avatar-user.mr-3 a img').attr('src');
+    const id = Number(details.attr('data-user'));
+    if (isNaN(id) || !details) throw new Error(`User '${name}' not found.`);
 
-        return {
-            id: Number(details.attr('data-user')),
-            name: $('title').text().slice(0, -47),
-            url,
-            avatar: avatar ?? DEFAULT_AVATAR
-        };
-    } catch {
-        return null;
-    }
+    return {
+        id: Number(details.attr('data-user')),
+        name: $('title').text().slice(0, -47),
+        url,
+        avatar: avatar ?? DEFAULT_AVATAR
+    };
 }
