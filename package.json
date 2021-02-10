@@ -7,8 +7,8 @@
   "typings": "typings/index.d.ts",
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "rimraf ./dist ./typings && npx tsc",
-    "docs": "rimraf ./docs && npx typedoc"
+    "build": "rimraf ./dist ./typings && tsc",
+    "docs": "rimraf ./docs && typedoc"
   },
   "files": [
     "dist",
