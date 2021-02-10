@@ -1,6 +1,6 @@
 {
   "name": "comicgeeks",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A NodeJS module to get data from League of Comic Geeks",
   "main": "dist/index.js",
   "module": "esm/index.mjs",
