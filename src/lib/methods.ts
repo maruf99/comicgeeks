@@ -218,12 +218,13 @@ export function fetchSearchResults(query: string, format: CollectionTypes = Coll
  * @param name The name for the user to fetch details for
  * @example Fetch a user
  * ```typescript
- * fetchUser('maruf99')
+ * fetchUser('some-user')
  *    .then(console.log)
+ *    // Will error if the user is not found
  *    .catch(console.error);
  * ```
  */
-export async function fetchUser(name: string): Promise<User | null> {
+export async function fetchUser(name: string): Promise<User> {
     const url = `${BASE_URL}/profile/${name.toLowerCase()}`;
 
     const text = await fetch(`${url}/pull-list`).then(res => res.text());
