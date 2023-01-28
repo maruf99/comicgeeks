@@ -1,0 +1,255 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>comicgeeks</title>
+	<meta name="description" content="Documentation for comicgeeks">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">comicgeeks</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>comicgeeks</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#comicgeeks" id="comicgeeks" style="color: inherit; text-decoration: none;">
+					<h1>comicgeeks</h1>
+				</a>
+				<p>A NodeJS module to get data from League of Comic Geeks</p>
+				<pre><code class="language-bash"><span style="color: #000000">npm install comicgeeks </span>
+</code></pre>
+				<a href="#features" id="features" style="color: inherit; text-decoration: none;">
+					<h2>Features</h2>
+				</a>
+				<ul>
+					<li>Fetching weekly release lists</li>
+					<li>Fetching search results</li>
+					<li>Fetching user pull lists</li>
+					<li>Fetching user collections</li>
+					<li>Fetching user wish lists</li>
+					<li>Filter by publisher, comic format, etc</li>
+					<li>Sort by pull count, community rating, price, alphabetically, etc</li>
+				</ul>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>View the full documentation <a href="https://maruf99.github.io/comicgeeks/">here</a>.</p>
+				<p>Every method to retrieve data is prefixed with <code>fetch</code>:</p>
+				<ul>
+					<li><code>fetchReleases</code></li>
+					<li><code>fetchSearchResults</code></li>
+					<li><code>fetchPulls</code></li>
+					<li><code>fetchCollection</code></li>
+					<li><code>fetchWishList</code></li>
+				</ul>
+				<p>Each method returns a Promise that resolves with the data. Here are a few examples:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">fetchReleases</span><span style="color: #000000">, </span><span style="color: #0070C1">FilterTypes</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;comicgeeks&#039;</span><span style="color: #000000">);</span>
+<span style="color: #008000">// ES Module or TypeScript: import { fetchReleases, FilterTypes } from &#039;comicgeeks&#039;;</span>
+
+<span style="color: #008000">// Fetch regular, digital, and annual DC Comics issues that released on 2020-12-15, and sort them alphabetically</span>
+<span style="color: #795E26">fetchReleases</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;2020-12-15&#039;</span><span style="color: #000000">, {</span>
+<span style="color: #000000">    </span><span style="color: #001080">publishers:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;DC Comics&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000">    </span><span style="color: #001080">filter:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">        </span><span style="color: #001080">FilterTypes</span><span style="color: #000000">.</span><span style="color: #001080">Regular</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">FilterTypes</span><span style="color: #000000">.</span><span style="color: #001080">Digital</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">FilterTypes</span><span style="color: #000000">.</span><span style="color: #001080">Annual</span>
+<span style="color: #000000">    ],</span>
+<span style="color: #000000">    </span><span style="color: #001080">sort:</span><span style="color: #000000"> </span><span style="color: #001080">SortTypes</span><span style="color: #000000">.</span><span style="color: #001080">AlphaAsc</span>
+<span style="color: #000000">})</span>
+<span style="color: #000000">    </span><span style="color: #008000">// Resolves to an array of objects</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #001080">log</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #001080">error</span><span style="color: #000000">);</span>
+</code></pre>
+				<p>The return objects will look something like this:</p>
+				<pre><code class="language-js"><span style="color: #000000">{</span>
+<span style="color: #000000">    name: </span><span style="color: #A31515">&#039;Batman #105&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    publisher: </span><span style="color: #A31515">&#039;DC Comics&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    url: </span><span style="color: #A31515">&#039;https://leagueofcomicgeeks.com/comic/9430629/batman-105&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    cover: </span><span style="color: #A31515">&#039;https://s3.amazonaws.com/comicgeeks/comics/covers/large-9430629.jpg?1612100060&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    description: </span><span style="color: #A31515">&#039;GHOST STORIES, PART 4 Batman battles Ghost-Maker in the no-holds-barred, bloody conclusion of this epic tale…winner take Gotham City! And the outcome is not what you’re expecting! The future of Gotham City and the fate of...&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    price: </span><span style="color: #A31515">&#039;$3.99&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    rating: </span><span style="color: #098658">84</span><span style="color: #000000">,</span>
+<span style="color: #000000">    pulls: </span><span style="color: #098658">9288</span><span style="color: #000000">,</span>
+<span style="color: #000000">    potw: </span><span style="color: #098658">2</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<p>Let&#39;s try search results.</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">fetchSearchResults</span><span style="color: #000000">, </span><span style="color: #0070C1">CollectionTypes</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;comicgeeks&#039;</span><span style="color: #000000">);</span>
+
+<span style="color: #008000">// Search for &#039;batman&#039; in issue format</span>
+<span style="color: #795E26">fetchSearchResults</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;batman&#039;</span><span style="color: #000000">, </span><span style="color: #001080">CollectionTypes</span><span style="color: #000000">.</span><span style="color: #001080">Issue</span><span style="color: #000000">)</span>
+<span style="color: #000000">    </span><span style="color: #008000">// Will resolve to an array of objects, similar to the one above</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #001080">log</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #001080">error</span><span style="color: #000000">);</span>
+</code></pre>
+				<p>When fetching user specific data, things become a bit more complicated. Each method will take the user&#39;s ID as the first parameter. There is a helper method, <code>fetchUser</code> to retrieve the ID from a username.</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">fetchUser</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;comicgeeks&#039;</span><span style="color: #000000">);</span>
+
+<span style="color: #795E26">fetchUser</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;maruf99&#039;</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #001080">log</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #001080">error</span><span style="color: #000000">);</span>
+
+<span style="color: #008000">/*</span>
+<span style="color: #008000">{</span>
+<span style="color: #008000">    id: 122444,</span>
+<span style="color: #008000">    name: &#039;maruf99&#039;,</span>
+<span style="color: #008000">    url: &#039;https://leagueofcomicgeeks.com/profile/maruf99&#039;,</span>
+<span style="color: #008000">    avatar: &#039;https://s3.amazonaws.com/comicgeeks/avatars/large-122444.jpg?t=1609863575&#039;</span>
+<span style="color: #008000">}</span>
+<span style="color: #008000"> */</span>
+</code></pre>
+				<p>Let&#39;s try fetching a pull list, collection, and wish list.</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #0070C1">CollectionTypes</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #0070C1">fetchCollection</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #0070C1">fetchPulls</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #0070C1">fetchUser</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #0070C1">fetchWishList</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #0070C1">SortTypes</span>
+<span style="color: #000000">} = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;comicgeeks&#039;</span><span style="color: #000000">);</span>
+
+<span style="color: #795E26">fetchUser</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;maruf99&#039;</span><span style="color: #000000">)</span>
+<span style="color: #000000">     </span><span style="color: #008000">// async/await syntax</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #0000FF">async</span><span style="color: #000000"> </span><span style="color: #001080">user</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #008000">// Fetch the collection</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">collection</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">fetchCollection</span><span style="color: #000000">(</span><span style="color: #001080">user</span><span style="color: #000000">.</span><span style="color: #001080">id</span><span style="color: #000000">, </span><span style="color: #001080">CollectionTypes</span><span style="color: #000000">.</span><span style="color: #001080">Series</span><span style="color: #000000">, {</span>
+<span style="color: #000000">            </span><span style="color: #001080">sort:</span><span style="color: #000000"> </span><span style="color: #001080">SortTypes</span><span style="color: #000000">.</span><span style="color: #001080">AlphaAsc</span>
+<span style="color: #000000">        });</span>
+
+<span style="color: #000000">        </span><span style="color: #008000">// Fetch the pull list and order by most pulled</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">pullList</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">fetchPulls</span><span style="color: #000000">(</span><span style="color: #001080">user</span><span style="color: #000000">.</span><span style="color: #001080">id</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;2021-01-05&#039;</span><span style="color: #000000">, {</span>
+<span style="color: #000000">            </span><span style="color: #001080">sort:</span><span style="color: #000000"> </span><span style="color: #001080">SortTypes</span><span style="color: #000000">.</span><span style="color: #001080">MostPulled</span>
+<span style="color: #000000">        });</span>
+
+<span style="color: #000000">        </span><span style="color: #008000">// Fetch the wish list and order by price </span>
+<span style="color: #000000">        </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">wishList</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">fetchWishList</span><span style="color: #000000">(</span><span style="color: #001080">user</span><span style="color: #000000">.</span><span style="color: #001080">id</span><span style="color: #000000">, </span><span style="color: #001080">CollectionTypes</span><span style="color: #000000">.</span><span style="color: #001080">Series</span><span style="color: #000000">, {</span>
+<span style="color: #000000">            </span><span style="color: #001080">sort:</span><span style="color: #000000"> </span><span style="color: #001080">SortTypes</span><span style="color: #000000">.</span><span style="color: #001080">HighPrice</span>
+<span style="color: #000000">        });</span>
+
+<span style="color: #000000">        </span><span style="color: #008000">// Do stuff with the data</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #001080">error</span><span style="color: #000000">);</span>
+</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/collectiontypes.html" class="tsd-kind-icon">Collection<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/filtertypes.html" class="tsd-kind-icon">Filter<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/sorttypes.html" class="tsd-kind-icon">Sort<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/comic.html" class="tsd-kind-icon">Comic</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/fetchoptions.html" class="tsd-kind-icon">Fetch<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/user.html" class="tsd-kind-icon">User</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#dateresolvable" class="tsd-kind-icon">Date<wbr>Resolvable</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#publisherresolvable" class="tsd-kind-icon">Publisher<wbr>Resolvable</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#publishers" class="tsd-kind-icon">Publishers</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#fetchcollection" class="tsd-kind-icon">fetch<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#fetchpulls" class="tsd-kind-icon">fetch<wbr>Pulls</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#fetchreleases" class="tsd-kind-icon">fetch<wbr>Releases</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#fetchsearchresults" class="tsd-kind-icon">fetch<wbr>Search<wbr>Results</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#fetchuser" class="tsd-kind-icon">fetch<wbr>User</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#fetchwishlist" class="tsd-kind-icon">fetch<wbr>Wish<wbr>List</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
